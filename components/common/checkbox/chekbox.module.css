@@ -1,0 +1,9 @@
+.checkbox {
+    width: 120px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.label {
+    width: 100px;
+}
