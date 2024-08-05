@@ -1,8 +1,16 @@
 .main {
+  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  height: 100vh;
+  width: full;
+}
+
+.graph {
+  width: 1200px;
+}
+
+.checkboxList {
+  height: 500px;
+  padding: 0 15px;
+  overflow: scroll;
 }
