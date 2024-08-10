@@ -1,6 +1,5 @@
 import { Prefecture } from "@/types/prefecture"
 import { CheckBox } from "../common/checkbox"
-import styles from "./checkboxList.module.css"
 
 interface Props {
   prefectures: Prefecture[]

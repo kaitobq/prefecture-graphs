@@ -1,5 +1,6 @@
 import { useState } from "react"
-import styles from "./chekbox.module.css"
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react"
 
 interface Props {
   label: string
@@ -25,9 +26,18 @@ export function CheckBox(props: Props) {
   }
 
   return (
-    <div className={styles.checkbox}>
-      <label className={styles.label}>{props.label}</label>
-      <input type="checkbox" onChange={handleChange} />
+    <div css={checkboxStyle} onClick={handleChange}>
+      <input type="checkbox" checked={checked} readOnly />
+      <label css={labelStyle}>{props.label}</label>
     </div>
   )
 }
+
+const checkboxStyle = css({
+  display: "flex",
+  margin: "0 5px",
+})
+
+const labelStyle = css({
+  width: "max-content",
+})
