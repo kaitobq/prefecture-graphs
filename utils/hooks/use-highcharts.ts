@@ -8,11 +8,11 @@ interface Props {
 }
 
 export function useHighcharts(props: Props) {
-  const { populationCompositions, isLoading, error } = usePopulationCompositions({
+  const { prefecturePopulations, isLoading, error } = usePopulationCompositions({
     prefCodes: props.prefCodes,
   })
 
-  const data = populationCompositions.map((pc) =>
+  const data = prefecturePopulations.map((pc) =>
     pc.result.data.find((data) => data.label === props.label),
   )
   const values = data.map((dt) => dt?.data.map((d) => d.value))
