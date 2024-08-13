@@ -14,7 +14,7 @@
     "incremental": true,
     "types": [
       "@emotion/react/types/css-prop",
-      "Jest",
+      "jest",
       "@testing-library/jest-dom"
     ],
     "plugins": [
