@@ -3,8 +3,11 @@ import { CheckBox } from "../common/checkbox"
 
 interface Props {
   prefectures: Prefecture[]
-  setPrefCodes: (prefCodes: number[]) => void
-  prefCodes: number[]
+  handleChange: (
+    checked: boolean,
+    setChecked: (checked: boolean) => void,
+    value: number,
+  ) => void
 }
 
 export function CheckBoxList(props: Props) {
@@ -15,8 +18,7 @@ export function CheckBoxList(props: Props) {
           key={prefecture.prefCode}
           label={prefecture.prefName}
           value={prefecture.prefCode}
-          setPrefCodes={props.setPrefCodes}
-          prefCodes={props.prefCodes}
+          handleChange={props.handleChange}
         />
       ))}
     </>

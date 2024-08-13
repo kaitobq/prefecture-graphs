@@ -19,6 +19,23 @@ export default function Home() {
   const [prefCodes, setPrefCodes] = useState<number[]>([])
   const [dataType, setDataType] = useState<DataType>("総人口")
 
+  const handlePrefChange = (
+    checked: boolean,
+    setChecked: (checked: boolean) => void,
+    value: number,
+  ) => {
+    const newChecked = !checked
+    setChecked(newChecked)
+
+    let newPrefCodes = [...prefCodes]
+    if (newChecked) {
+      newPrefCodes.push(value)
+    } else {
+      newPrefCodes = newPrefCodes.filter((code) => code !== value)
+    }
+    setPrefCodes(newPrefCodes)
+  }
+
   useEffect(() => {
     const localStorageAsync: AsyncStringStorage = {
       getItem: async (key) => localStorage.getItem(key) || null,
@@ -40,11 +57,7 @@ export default function Home() {
         <DataTypeSelector setDataType={setDataType} currentDType={dataType} />
       </div>
       <div css={CheckBoxListStyle}>
-        <CheckBoxList
-          prefectures={prefectures}
-          setPrefCodes={setPrefCodes}
-          prefCodes={prefCodes}
-        />
+        <CheckBoxList prefectures={prefectures} handleChange={handlePrefChange} />
       </div>
     </div>
   )

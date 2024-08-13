@@ -9,7 +9,6 @@ export function Header() {
 
 const HeaderContainer = css({
   width: "100vw",
-  // maxWidth: "100vw",
   backgroundColor: "#f8d048",
   color: "#343c8f",
   fontWeight: "bold",

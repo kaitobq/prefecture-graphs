@@ -5,28 +5,21 @@ import { css } from "@emotion/react"
 interface Props {
   label: string
   value: number
-  setPrefCodes: (prefCodes: number[]) => void
-  prefCodes: number[]
+  handleChange: (
+    checked: boolean,
+    setChecked: (checked: boolean) => void,
+    value: number,
+  ) => void
 }
 
 export function CheckBox(props: Props) {
   const [checked, setChecked] = useState(false)
 
-  const handleChange = () => {
-    const newChecked = !checked
-    setChecked(newChecked)
-
-    let newPrefCodes = [...props.prefCodes]
-    if (newChecked) {
-      newPrefCodes.push(props.value)
-    } else {
-      newPrefCodes = newPrefCodes.filter((code) => code !== props.value)
-    }
-    props.setPrefCodes(newPrefCodes)
-  }
-
   return (
-    <div css={checkboxStyle} onClick={handleChange}>
+    <div
+      css={checkboxStyle}
+      onClick={() => props.handleChange(checked, setChecked, props.value)}
+    >
       <input type="checkbox" checked={checked} readOnly />
       <label css={labelStyle}>{props.label}</label>
     </div>
